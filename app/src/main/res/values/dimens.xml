@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name = "title_tet_height">24sp</dimen>
+    <dimen name="Logo_Width">150dp</dimen>
+    <dimen name="Logo_Height">80dp</dimen>
+</resources>
