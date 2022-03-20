@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">FirstApp</string>
+    <string name="app_name">WeatherApp</string>
     <string name="zip_code_error">Introduiza um Codigo Postal correto</string>
     <string name="foreCast_Format">Forecast: %1$.0f %2$s </string>
+    <string name="foreCastDetails">Forecast Details </string> //Mensagem de texto posta em cima da ativadde
+    <string name="foreCastDisplayunits">Display Units</string>
 </resources>

@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="56dp"
-    android:background="@color/ForeCastBackgroud"
-    android:foreground="?attr/selectableItemBackground"
-    android:clickable="true">
+    android:background="@color/white"
+    android:clickable="true"
+    android:foreground="?attr/selectableItemBackground">
 
     <TextView
         android:id="@+id/tempText"

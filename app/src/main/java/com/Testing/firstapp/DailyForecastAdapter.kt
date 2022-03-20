@@ -9,19 +9,24 @@ import android.view.ViewGroup
 import android.widget.TextView
 import org.w3c.dom.Text
 
-class DailyForecastViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+class DailyForecastViewHolder(
+    view: View,
+    private val tempDisplaySettingManager: TempDisplaySettingManager) : RecyclerView.ViewHolder(view) {
 
     private val tempText = view.findViewById<TextView>(R.id.tempText)
     private val descriptionText: TextView = view.findViewById(R.id.descriptionText)
 
     fun bind(dailyForecast: DailyForecast) {
-        tempText.text =String.format("%.0f" ,dailyForecast.temp)
+        tempText.text = formatTempForDisplay(dailyForecast.temp, tempDisplaySettingManager.getTempDisplaySetting())
         descriptionText.text= dailyForecast.description
     }
 }
 
 class DailyForecastAdapter(
-    private val clickHandler: (DailyForecast)-> Unit)
+    private val tempDisplaySettingManager: TempDisplaySettingManager,
+    private val clickHandler: (DailyForecast)-> Unit,
+    )
+
     : ListAdapter<DailyForecast,DailyForecastViewHolder>(DIFF_CONFIG) {
 
     companion object {
@@ -39,7 +44,7 @@ class DailyForecastAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DailyForecastViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_daily_forecast , parent, false)
-        return DailyForecastViewHolder(itemView)
+        return DailyForecastViewHolder(itemView,tempDisplaySettingManager)
     }
 
     override fun onBindViewHolder(holder: DailyForecastViewHolder, position: Int) {
